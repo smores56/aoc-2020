@@ -4,15 +4,38 @@ require "file_utils"
 require "./day/*"
 
 module Aoc
-  VERSION = "0.1.0"
-
-  days = {
+  DAYS    = {
     "1" => Day1,
+    "2" => Day2,
+    "3" => Day3,
+    "4" => Day4,
+    "5" => Day5,
+    "6" => Day6,
+    "7" => Day7,
+    "8" => Day8,
+    "9" => Day9,
+    "10" => Day10,
+    "11" => Day11,
+    "12" => Day12,
+    "13" => Day13,
+    "14" => Day14,
+    "15" => Day15,
+    "16" => Day16,
+    "17" => Day17,
+    "18" => Day18,
+    "19" => Day19,
+    "20" => Day20,
+    "21" => Day21,
+    "22" => Day22,
+    "23" => Day23,
+    "24" => Day24,
+    "25" => Day25,
   }
+
   name_of_day = nil
 
   OptionParser.parse do |parser|
-    parser.banner = "Usage: aoc [arguments]"
+    parser.banner = "Usage: aoc-2020 [arguments]"
     parser.on("-d DAY", "--day=DAY", "The day to run tests for") { |d| name_of_day = d }
     parser.on("-h", "--help", "Show this help") do
       puts parser
@@ -26,7 +49,7 @@ module Aoc
   end
 
   name_of_day = Time.local.day.to_s unless name_of_day
-  day = (days[name_of_day || ""] || raise "Invalid day chosen").new
+  day = (DAYS[name_of_day || ""] || raise "Invalid day chosen").new
 
   session = begin
     (File.read ".session").strip
@@ -35,9 +58,14 @@ module Aoc
   end
 
   data = get_data_for_day(name_of_day, session)
+  t1 = Time.monotonic
+  first = day.first(data)
+  t2 = Time.monotonic
+  second = day.second(data)
+  t3 = Time.monotonic
 
-  puts "First Solution: #{day.first(data)}\n"
-  puts "Second Solution: #{day.second(data)}\n"
+  puts "First Solution: #{day.first(data)} (took #{(t2 - t1).to_f} seconds)\n"
+  puts "Second Solution: #{day.second(data)} (took #{(t3 - t2).to_f} seconds)\n"
 
   def self.get_data_for_day(day, session)
     FileUtils.mkdir_p ".data/"

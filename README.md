@@ -5,26 +5,48 @@ My entry for the [Advent of Code][aoc] for 2020, written entirely in [Crystal][c
 
 ## Installation
 
-TODO: Write installation instructions here
+You only need [Crystal installed][install crystal] to run these solutions.
+
+
+## Setup
+
+This solution takes inspiration from the [cargo-aoc][cargo-aoc] Rust plugin
+that I used for the 2018 Advent of Code and automatically downloads and provides
+the input to the solution implementations using the AoC API.
+
+To setup, make sure that you are logged in to the [Advent of Code][aoc] website,
+and then copy your `session` cookie by opening the Network Inspector of your web
+browser and looking at the "Cookies" tab of the inspector. Then write the session
+token to a file in this repo named `.session` however you like; something like
+this should work:
+
+```console
+$ cd aoc-2020/ && xsel > .session
+```
+
+Once this is done, this application will automatically download input data to the
+`.data` folder (which it will create automatically) if it is missing.
 
 
 ## Usage
 
-TODO: Write usage instructions here
+Once you have setup by installing [Crystal][crystal] and saving your session token
+to the `.session` file, you can run any solution from the repo with
+
+```
+$ crystal run src/aoc-2020.cr [--day <DAY>] [--release]
+```
+
+By default, this application will use the current day of the month (e.g. if it is
+December 8th, day will default to 8). Crystal assumes debug mode for faster compilation,
+but if you need to run a solution faster because it is computationally expensive, you
+can add the `--release` flag to improve runtime speeds at the cost of compilation time.
 
 
 ## Development
 
-TODO: Write development instructions here
-
-
-## Contributing
-
-1. Fork it (<https://github.com/your-github-user/aoc/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+All of the days are already templated out, so you just have to pick the one you are
+working on and start writing!
 
 
 ## Contributors
@@ -32,5 +54,8 @@ TODO: Write development instructions here
 - [Sam Mohr](https://github.com/smores56) - creator and maintainer
 
 
-[aoc]: https://adventofcode.com
-[crystal]: https://crystal-lang.org
+[aoc]: https://adventofcode.com/
+[crystal]: https://crystal-lang.org/
+[install crystal]: https://crystal-lang.org/install/
+[cargo-aoc]: https://crates.io/crates/cargo-aoc/
+
