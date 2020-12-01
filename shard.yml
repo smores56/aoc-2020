@@ -1,0 +1,13 @@
+name: aoc-2020
+version: 0.1.0
+
+authors:
+  - Sam Mohr <sam@mohr.codes>
+
+targets:
+  aoc-2020:
+    main: src/aoc-2020.cr
+
+crystal: 0.35.1
+
+license: MIT
