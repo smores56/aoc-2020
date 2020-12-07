@@ -64,8 +64,8 @@ module Aoc
   second = day.second(data)
   t3 = Time.monotonic
 
-  puts "First Solution: #{day.first(data)} (took #{(t2 - t1).to_f} seconds)\n"
-  puts "Second Solution: #{day.second(data)} (took #{(t3 - t2).to_f} seconds)\n"
+  puts "First Solution: #{first} (took #{(t2 - t1).to_f} seconds)\n"
+  puts "Second Solution: #{second} (took #{(t3 - t2).to_f} seconds)\n"
 
   def self.get_data_for_day(day, session)
     FileUtils.mkdir_p ".data/"
