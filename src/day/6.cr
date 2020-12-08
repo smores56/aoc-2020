@@ -20,10 +20,10 @@ module Aoc
       num_all_yes = answers.map do |group|
         chars = group.join.chars
         unique_chars = chars.uniq
-        
+
         chars.uniq.count { |ch| group.all? { |answer| answer.includes? ch } }
       end
-      
+
       num_all_yes.sum
     end
   end
