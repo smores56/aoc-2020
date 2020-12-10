@@ -58,13 +58,14 @@ module Aoc
   end
 
   data = get_data_for_day(name_of_day, session)
+
   t1 = Time.monotonic
   first = day.first(data)
   t2 = Time.monotonic
+  puts "First Solution: #{first} (took #{(t2 - t1).to_f} seconds)\n"
+
   second = day.second(data)
   t3 = Time.monotonic
-
-  puts "First Solution: #{first} (took #{(t2 - t1).to_f} seconds)\n"
   puts "Second Solution: #{second} (took #{(t3 - t2).to_f} seconds)\n"
 
   def self.get_data_for_day(day, session)
