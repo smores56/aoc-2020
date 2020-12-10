@@ -10,7 +10,7 @@ module Aoc
 
     def second(input)
       original_ops = input.map { |line| Operation.parse line }
-      
+
       (0...original_ops.size).each do |index|
         case original_ops[index][0]
         when Operation::Jmp
@@ -25,10 +25,10 @@ module Aoc
           return accumulator if finished
         end
       end
-      
+
       0
     end
-    
+
     def interpret(ops)
       accumulator = 0
       index = 0
