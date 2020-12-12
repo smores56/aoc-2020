@@ -131,23 +131,6 @@ module Aoc
           row1.zip(row2).all? { |seat1, seat2| seat1 == seat2 }
         end
       end
-
-      def inspect(io)
-        @seats.each do |row|
-          row.each do |seat|
-            case seat
-            when Seat::Floor
-              io << '.'
-            when Seat::Empty
-              io << 'L'
-            when Seat::Filled
-              io << '#'
-            end
-          end
-
-          io << '\n'
-        end
-      end
     end
   end
 end
