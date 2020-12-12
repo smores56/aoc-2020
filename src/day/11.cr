@@ -106,7 +106,7 @@ module Aoc
           {1, 0},
           {-1, 0},
         ]
-        
+
         directions.count do |up, right|
           curr_row, curr_column = row + up, column + right
           filled = false
@@ -114,14 +114,14 @@ module Aoc
           while (0...@seats.size).covers?(curr_row) && (0...(@seats[0].size)).covers?(curr_column)
             seat = @seats[curr_row]?.try &.[curr_column]?
             filled = true if seat == Seat::Filled
-            
+
             curr_row, curr_column = if seat == Seat::Floor
-              {curr_row + up, curr_column + right}
-            else
-              {-1, -1}
-            end
-          end 
-          
+                                      {curr_row + up, curr_column + right}
+                                    else
+                                      {-1, -1}
+                                    end
+          end
+
           filled
         end
       end
