@@ -49,7 +49,7 @@ module Aoc
   end
 
   name_of_day = Time.local.day.to_s unless name_of_day
-  day = (DAYS[name_of_day || ""] || raise "Invalid day chosen").new
+  day = (DAYS[name_of_day]? || raise "Invalid day chosen").new
 
   session = begin
     (File.read ".session").strip
